@@ -1,7 +1,8 @@
 import { NativeModules } from 'react-native';
 
 type EscposAndroidType = {
-  multiply(a: number, b: number): Promise<number>;
+  requestPermission(): Promise<boolean>
+  write(params: { text?: string, cut?: boolean, raw?: number[] }): Promise<void>
 };
 
 const { EscposAndroid } = NativeModules;
