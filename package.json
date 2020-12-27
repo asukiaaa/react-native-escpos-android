@@ -1,6 +1,6 @@
 {
   "name": "react-native-escpos-android",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "A library to use escpos on android",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
