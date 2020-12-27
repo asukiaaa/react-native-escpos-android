@@ -8,6 +8,36 @@ A library to use escpos on android with using [ESCPOS-ThermalPrinter-Android](ht
 npm install react-native-escpos-android
 ```
 
+## Optional setting
+
+Set intent filter if you want to give permission to app at connecting device.
+
+androd/app/src/main/AndroidManifest.xml
+```xml
+<manifest ...>
+  <application ...>
+    <activity
+      android:name=".MainActivity"
+    ...>
+      <intent-filter>
+        <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
+      </intent-filter>
+      <meta-data
+        android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"
+        android:resource="@xml/device_filter" />
+    </activity>
+  </application>
+</manifest>
+```
+
+Create android/app/src/main/res/xml/device_filter.xml
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <usb-device vendor-id="1208" /> <!-- seiko epson -->
+</resources>
+```
+
 ## Usage
 
 Write formatted text. The fromat is supplied by [ESCPOS-ThermalPrinter-Android](https://github.com/DantSu/ESCPOS-ThermalPrinter-Android#formatted-text--syntax-guide).
